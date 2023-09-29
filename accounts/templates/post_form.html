@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content%}
+ <nav class="navbar navbar-expand-lg navbar-custom">
+        <a class="navbar-brand" href="#">Edit User Details</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home' %}">View List</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container py-5">
+        <div class="card p-4">
+            <h1>Edit User</h1>
+            <div id="alert-box"></div>
+            <div id="image-box" class="mb-3"></div>
+            <form id="profile-form"method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-custom" id="confirm-btn">Submit</button>
+            </form>
+        </div>
+    </div>
+{% endblock%}
